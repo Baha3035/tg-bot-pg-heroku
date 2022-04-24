@@ -1,6 +1,6 @@
-BOT_TOKEN = '5278340360:AAEmA21RWM1dzothCw1IQoAc18Xb6Hjwrdo'
+BOT_TOKEN = '5349137146:AAEhEOYgN0BZYq9Pao2otgGHBiejz9WrUgc'
 
-PROJECT_NAME = 'store-bot-example'
+PROJECT_NAME = 'tg-bot-delivery'
 
 WEBHOOK_HOST = f"https://{PROJECT_NAME}.herokuapp.com"
 WEBHOOK_PATH = '/webhook/' + BOT_TOKEN
