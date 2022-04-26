@@ -151,10 +151,10 @@ async def checkout(message, state):
         for title, price, count_in_cart in data['products'].values():
 
             tp = count_in_cart * price
-            answer += f'<b>{title}</b> * {count_in_cart}шт. = {tp}₽\n'
+            answer += f'<b>{title}</b> * {count_in_cart}шт. = {tp}сом\n'
             total_price += tp
 
-    await message.answer(f'{answer}\nОбщая сумма заказа: {total_price}₽.',
+    await message.answer(f'{answer}\nОбщая сумма заказа: {total_price} сом.',
                          reply_markup=check_markup())
 
 
@@ -363,8 +363,9 @@ async def process_confirm(message: Message, state: FSMContext):
 
             db.query('DELETE FROM cart WHERE cid=%s', (cid,))
 
-            await message.answer('Ок! Ваш заказ уже в пути 🚀\nИмя: <b>' + data['name'] + '</b>\nРайон: <b>' + data['address'] + '</b>\nУлица: <b>' + data['street'] + '</b>\nТелефонный номер: <b>' + data['phone'] + '</b>\nЧтобы вернуться в меню воспользуйтесь командой /start.' + '</b>',
+            await message.answer('Ок! Ваш заказ уже в пути 🚀\nИмя: <b>' + data['name'] + '</b>\nРайон: <b>' + data['address'] + '</b>\nУлица: <b>' + data['street'] + '</b>\nТелефонный номер: <b>' + data['phone'] + '</b>\nЧтобы вернуться в меню воспользуйтесь командой /start <b>' + '</b>',
                                  reply_markup=markup)
+            print('Не сработало')
     else:
 
         await message.answer('У вас недостаточно денег на счете. Пополните баланс!',
