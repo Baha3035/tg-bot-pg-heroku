@@ -256,7 +256,7 @@ async def process_confirm(message: Message, state: FSMContext):
 async def delete_product_callback_handler(query: CallbackQuery, callback_data: dict):
 
     product_idx = callback_data['id']
-    db.query('DELETE FROM products WHERE idx=?', (product_idx,))
+    db.query('DELETE FROM products WHERE idx=%s', (product_idx,))
     await query.answer('Удалено!')
     await query.message.delete()
 
